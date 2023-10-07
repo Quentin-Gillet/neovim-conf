@@ -1,12 +1,12 @@
 return {
-    "ranjithshegde/ccls.nvim", 
+    "ranjithshegde/ccls.nvim",
+    enabled = false,
     opts = function()
         local util = require("lspconfig.util")
         local server_config = {
-            filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
+            filetypes = { "c" },
             root_dir = function(fname)
-                return util.root_pattern("compile_commands.json", ".ccls", "compile_flags.txt", ".git")(fname)
-                    or util.find_git_ancestor(fname)
+                return util.root_pattern(".ccls")(fname)
             end,
             init_options = { cache = {
                 directory = vim.fs.normalize "~/.cache/ccls" -- if on nvim 0.8 or higher
