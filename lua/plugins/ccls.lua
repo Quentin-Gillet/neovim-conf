@@ -1,10 +1,10 @@
 return {
     "ranjithshegde/ccls.nvim",
-    enabled = false,
+    -- enabled = false,
     opts = function()
         local util = require("lspconfig.util")
         local server_config = {
-            filetypes = { "c" },
+            filetypes = { "c", "h" },
             root_dir = function(fname)
                 return util.root_pattern(".ccls")(fname)
             end,
